@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Mechanical Keyboard Sound Simulator",
+  "version": "1.0",
+  "description": "Simulates the clicking sound of a mechanical keyboard as you type",
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["click.mp3"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
